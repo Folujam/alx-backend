@@ -32,7 +32,7 @@ class Server:
         """Dataset indexed by sorting position, starting at 0
         """
         if self.__indexed_dataset is None:
-            dataset = self.dataset()
+            dataset = self.__dataset()
             truncated_dataset = dataset[:1000]
             self.__indexed_dataset = {
                 i: dataset[i] for i in range(len(dataset))
@@ -48,9 +48,9 @@ class Server:
         # find the en index for the page
         end_index = index
         page_data = []
-        while len(page_data) < page_size and end_index < len(self.dataset):
-            if end_index in self.dataset:
-                page_data.append(self.dataset[end_index])
+        while len(page_data) < page_size and end_index < len(self.__dataset):
+            if end_index in self.__dataset:
+                page_data.append(self.__dataset[end_index])
             end_index += 1
         # find the next page
         next_index = end_index
