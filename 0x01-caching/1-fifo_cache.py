@@ -9,6 +9,8 @@ class FIFOCache(BaseCaching):
     -its a caching system
     -it implements a put and get method"""
     def __init__(self):
+        """initializes this cache and base cache
+        -orders the dict(cache_data) so as to pop pricisely"""
         super().__init__()
         self.cache_data = OrderedDict()
 
@@ -22,7 +24,7 @@ class FIFOCache(BaseCaching):
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             # fist_key = list(self.cache_data.keys())[1] only returns value
             popped_key, _ = self.cache_data.popitem(last=False)
-            print("DISCARD: ", popped_key)
+            print("DISCARD:", popped_key)
 
     def get(self, key):
         """checks if key value exist
