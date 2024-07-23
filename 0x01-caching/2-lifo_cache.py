@@ -20,11 +20,11 @@ class LIFOCache(BaseCaching):
         -if memory filled old item is popped for new item"""
         if key is None or item is None:
             return
-        self.cache_data[key] = item
-        if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
-            # fist_key = list(self.cache_data.keys())[1] only returns value
-            popped_key, _ = self.cache_data.popitem(last=True)
-            print("DISCARD: {}".format(popped_key))
+        if key not in self.cache_data:
+            if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
+                # fist_key = list(self.cache_data.keys())[1] only returns value
+                popped_key, _ = self.cache_data.popitem(last=True)
+                print("DISCARD: {}".format(popped_key))
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
 
