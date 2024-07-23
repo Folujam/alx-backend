@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """LIFO Caching Module"""
+from collections import OrderedDict
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -9,6 +10,7 @@ class FIFOCache(BaseCaching):
     -it implements a put and get method"""
     def __init__(self):
         super().__init__()
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """if key is empty nothing is done
@@ -18,8 +20,8 @@ class FIFOCache(BaseCaching):
             return
         self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            last_key = list(self.cache_data.keys())[-1]
-            popped_key = self.cache_data.pop(last_key)
+            # fist_key = list(self.cache_data.keys())[1] only returns value
+            popped_key, _ = self.cache_data.popitem(last=False)
             print("DISCARD: ", popped_key)
 
     def get(self, key):
