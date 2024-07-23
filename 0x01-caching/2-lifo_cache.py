@@ -24,7 +24,7 @@ class LIFOCache(BaseCaching):
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             # fist_key = list(self.cache_data.keys())[1] only returns value
             popped_key, _ = self.cache_data.popitem(last=True)
-            print("DISCARD: ", popped_key)
+            print("DISCARD:{}".format(popped_key))
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
 
