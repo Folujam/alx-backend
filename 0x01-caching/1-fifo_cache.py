@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""LIFO Caching Module"""
+"""FIFO Caching Module"""
 from collections import OrderedDict
 BaseCaching = __import__('base_caching').BaseCaching
 
