@@ -4,7 +4,7 @@ from collections import OrderedDict
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class LIFOCache(BaseCaching):
+class LRUCache(BaseCaching):
     """inherits from base caching lol duh!
     -its a caching system
     -it implements a put and get method"""
@@ -22,7 +22,7 @@ class LIFOCache(BaseCaching):
             return
         if key not in self.cache_data:
             if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
-                # fist_key = list(self.cache_data.keys())[1] only returns value
+                # popped_key = list(self.cache_data.keys())[1] only returns value
                 popped_key, _ = self.cache_data.popitem(last=True)
                 print("DISCARD: {}".format(popped_key))
             self.cache_data[key] = item
