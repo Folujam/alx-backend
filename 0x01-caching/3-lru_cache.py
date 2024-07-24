@@ -33,6 +33,6 @@ class LRUCache(BaseCaching):
     def get(self, key):
         """checks if key value exist
         - returns key value"""
-        if key is None or key not in self.cache_data:
-            return None
-        self.cache_data.move_to_end(key, last=False)
+        if key is not None and key in self.cache_data:
+            self.cache_data.move_to_end(key, last=False)
+        return self.cache_data.get(key, None)
