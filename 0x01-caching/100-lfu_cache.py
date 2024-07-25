@@ -49,7 +49,7 @@ class LFUCache(BaseCaching):
             return
         if key not in self.cache_data:
             if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
-                popped_key, _ = self.keys_freq[-1] 
+                popped_key, _ = self.keys_freq[-1]
                 self.cache_data.pop(popped_key)
                 self.keys_freq.pop()
                 print("DISCARD: {}".format(popped_key))
