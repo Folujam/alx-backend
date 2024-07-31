@@ -34,7 +34,7 @@ def get_locale() -> str:
         if lang[:2] in Config.LANGUAGES:
             best_match = lang[:2]
             break
-    return best_match if not None else "en"
+    return best_match or "en"
 
 
 # Define a route for the root URL ("/")
