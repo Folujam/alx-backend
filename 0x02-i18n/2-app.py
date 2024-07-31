@@ -23,7 +23,7 @@ babel = Babel(app)
 
 
 # create get_locale with @babel.localeselector
-@app.localeselector
+@babel.localeselector
 def get_locale() -> str:
     """gets the accepted language"""
     accepted_locale_language = request.accept_languages.values()
