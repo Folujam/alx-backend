@@ -25,7 +25,7 @@ babel = Babel(app)
 # create get_locale with @babel.localeselector
 @babel.localeselector
 def get_locale() -> str:
-    """gets the accepted language"""
+    """gets the accepted language
     accepted_locale_language = request.accept_languages.values()
 
     # Find best match lang
@@ -35,6 +35,8 @@ def get_locale() -> str:
             best_match = lang[:2]
             break
     return best_match or "en"
+    """
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 # Define a route for the root URL ("/")
