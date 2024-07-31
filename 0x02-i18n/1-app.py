@@ -12,8 +12,8 @@ app = Flask(__name__)
 class Config:
     """config class that inits ffg attribs"""
     LANGUAGES = ["en", "fr"]
-    BABAL_DEFAULT_LOCALE = "en"
-    BABAL_DEFAULT_TIMEZONE = "UTC"
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 # set the config class as the app's configuration
 
 
