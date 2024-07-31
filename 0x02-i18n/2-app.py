@@ -22,13 +22,6 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-# Define a route for the root URL ("/")
-@app.route("/")
-def index() -> str:
-    """this renders templates/2-index.html"""
-    return render_template("2-index.html")
-
-
 # create get_locale with @babel.localeselector
 @app.localeselector
 def get_locale() -> str:
@@ -42,6 +35,13 @@ def get_locale() -> str:
             best_match = lang[:2]
             break
     return best_match if not None else "en"
+
+
+# Define a route for the root URL ("/")
+@app.route("/")
+def index() -> str:
+    """this renders templates/2-index.html"""
+    return render_template("2-index.html")
 
 
 if __name__ == "__main__":
