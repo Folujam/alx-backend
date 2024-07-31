@@ -25,8 +25,8 @@ babel = Babel(app)
 # Define a route for the root URL ("/")
 @app.route("/")
 def index() -> str:
-    """this renders templates/0-index.html"""
-    return render_template("0-index.html")
+    """this renders templates/1-index.html"""
+    return render_template("1-index.html")
 
 
 if __name__ == "__main__":
