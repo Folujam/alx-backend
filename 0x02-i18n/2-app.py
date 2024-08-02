@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """a flask app Module"""
 from flask import Flask, render_template, request
-from flask_babel import Babel, localeselector, get_local
+from flask_babel import Babel
 
 
 # Create a Flask app instance
